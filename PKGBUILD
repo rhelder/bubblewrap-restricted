@@ -1,7 +1,7 @@
 # Maintainer: Bartłomiej Piotrowski <bpiotrowski@archlinux.org>
 
 pkgname=bubblewrap
-pkgver=0.1.6
+pkgver=0.1.7
 pkgrel=1
 pkgdesc='Unprivileged sandboxing tool'
 url='https://github.com/projectatomic/bubblewrap'
@@ -9,7 +9,7 @@ arch=('i686' 'x86_64')
 license=('GPL')
 depends=('glibc')
 source=($url/releases/download/v$pkgver/bubblewrap-${pkgver}.tar.xz)
-sha256sums=('f4cb4a56d1721bcd9545718b0d3386ea20b9276605eb36868658b9eec8b63e23')
+sha256sums=('e98c1c1c0d353765e62e17b17913d21cce585eda8093cbdf17977377eee5e3de')
 
 build() {
   cd $pkgname-$pkgver
