@@ -1,6 +1,6 @@
 pkgbase = bubblewrap
 	pkgdesc = Unprivileged sandboxing tool
-	pkgver = 0.9.0
+	pkgver = 0.10.0
 	pkgrel = 1
 	url = https://github.com/containers/bubblewrap
 	arch = x86_64
@@ -13,12 +13,13 @@ pkgbase = bubblewrap
 	depends = gcc-libs
 	depends = glibc
 	depends = libcap
-	source = git+https://github.com/containers/bubblewrap#commit=8e51677abd7e3338e4952370bf7d902e37d8cbb6
-	b2sums = f843694c2c2ba08bcf1f8c1c214655a5de1eaed6fba92758874240ac21a76c85a103ded60cd7789253e73e86ce209b65cf36ef0707dcd09addee1ed92b6dc178
+	source = git+https://github.com/containers/bubblewrap?signed#tag=v0.10.0
+	validpgpkeys = DA98F25C0871C49A59EAFF2C4DE8FF2A63C7CC90
+	b2sums = f24c4eec970cdf75dca6f2ecc6e920ca448909f30928fa9c421776906e43164ef5ba13d25a55a242f04fcef54a151472bce83e9c5b3e53a3be760ecea63c712b
 
 pkgname = bubblewrap
 
 pkgname = bubblewrap-suid
 	pkgdesc = Unprivileged sandboxing tool (setuid variant)
-	provides = bubblewrap=0.9.0-1
+	provides = bubblewrap=0.10.0-1
 	conflicts = bubblewrap

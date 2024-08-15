@@ -1,4 +1,5 @@
 [bubblewrap]
-source = "git"
-git = "https://github.com/containers/bubblewrap.git"
+source = "github"
+github = "containers/bubblewrap"
+use_max_tag = true
 prefix = "v"
