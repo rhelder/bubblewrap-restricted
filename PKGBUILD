@@ -7,7 +7,7 @@ pkgname=(
   bubblewrap
   bubblewrap-suid
 )
-pkgver=0.10.0
+pkgver=0.11.0
 pkgrel=1
 pkgdesc='Unprivileged sandboxing tool'
 url='https://github.com/containers/bubblewrap'
@@ -26,7 +26,7 @@ makedepends=(
   meson
 )
 source=("git+$url?signed#tag=v$pkgver")
-b2sums=('f24c4eec970cdf75dca6f2ecc6e920ca448909f30928fa9c421776906e43164ef5ba13d25a55a242f04fcef54a151472bce83e9c5b3e53a3be760ecea63c712b')
+b2sums=('dd5ac8fcffdf71a9bd10b765ae113424b1dea740fcdbf99cbd7716b6c33121ec2a987d8cf186eccc17a2e67dfa82ce4f843301c7d33a9007e3702d52c3312017')
 validpgpkeys=(
   DA98F25C0871C49A59EAFF2C4DE8FF2A63C7CC90 # Simon McVittie <smcv@collabora.com>
 )
