@@ -10,9 +10,9 @@ pkgbase = bubblewrap
 	makedepends = git
 	makedepends = libxslt
 	makedepends = meson
-	depends = gcc-libs
 	depends = glibc
 	depends = libcap
+	depends = libgcc
 	source = git+https://github.com/containers/bubblewrap?signed#tag=v0.11.0
 	validpgpkeys = DA98F25C0871C49A59EAFF2C4DE8FF2A63C7CC90
 	b2sums = dd5ac8fcffdf71a9bd10b765ae113424b1dea740fcdbf99cbd7716b6c33121ec2a987d8cf186eccc17a2e67dfa82ce4f843301c7d33a9007e3702d52c3312017
