@@ -8,7 +8,7 @@ pkgname=(
   bubblewrap-suid
 )
 pkgver=0.11.0
-pkgrel=1
+pkgrel=2
 pkgdesc='Unprivileged sandboxing tool'
 url='https://github.com/containers/bubblewrap'
 arch=(x86_64)
