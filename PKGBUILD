@@ -2,17 +2,13 @@
 # Maintainer: Levente Polyak <anthraxx[at]archlinux[dot]org>
 # Contributor: Bartłomiej Piotrowski <bpiotrowski@archlinux.org>
 
-pkgbase=bubblewrap
-pkgname=(
-  bubblewrap
-  bubblewrap-suid
-)
-pkgver=0.11.2
+pkgname=bubblewrap
+pkgver=0.12.0
 pkgrel=1
 pkgdesc='Unprivileged sandboxing tool'
 url='https://github.com/containers/bubblewrap'
 arch=(x86_64)
-license=(LGPL-2.0-or-later)
+license=(LGPL-2.1-or-later)
 depends=(
   glibc
   libcap
@@ -26,45 +22,37 @@ makedepends=(
   meson
 )
 source=("git+$url?signed#tag=v$pkgver")
-b2sums=('7166c1483c8c8d6b2fed4220f023b51bc0de2ccc2c61a3435e1adc0d1ded316de027721a6c71e14c957e65f81bf0195634b39db834071055aaff4484ad2d0ecc')
+b2sums=('7fc2f4cffe860630f2887de49d0807a99d3fd41c34259f85f3d3fdf8f3d9131b0fdf24269bc93da5b06a92d144a26a04345f0e51bbfab3e3cc3c6048df60b986')
 validpgpkeys=(
   DA98F25C0871C49A59EAFF2C4DE8FF2A63C7CC90 # Simon McVittie <smcv@collabora.com>
   252C6FEA78A69D3BC0AD458A616C5BDC0C29AB04 # Alexander Larsson <alexl@redhat.com>
 )
 
 prepare() {
-  cd $pkgbase
+  cd $pkgname
 }
 
 build() {
   local meson_options=(
+    # major.minor.0 of linux-lts
+    -D assume_kernel=6.18.0
+
     -D selinux=disabled
   )
 
-  arch-meson $pkgbase build "${meson_options[@]}"
-  arch-meson $pkgbase build-suid "${meson_options[@]}" -D support_setuid=true
-
+  arch-meson $pkgname build "${meson_options[@]}"
   meson compile -C build
-  meson compile -C build-suid
 }
 
 check() {
-  # Broken in our containers
+  # Broken in our build containers
   meson test -C build --print-errorlogs || :
-  meson test -C build-suid --print-errorlogs || :
 }
 
-package_bubblewrap() {
+package() {
+  replaces=("bubblewrap-suid<=0.11.2-1")
+
   meson install -C build --destdir "$pkgdir"
-}
-
-package_bubblewrap-suid() {
-  pkgdesc+=" (setuid variant)"
-  provides=("bubblewrap=$pkgver-$pkgrel")
-  conflicts=(bubblewrap)
-
-  meson install -C build-suid --destdir "$pkgdir"
-  chmod u+s "$pkgdir/usr/bin/bwrap"
 }
 
 # vim:set sw=2 sts=-1 et:
