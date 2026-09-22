@@ -3,7 +3,7 @@
 # Contributor: Bartłomiej Piotrowski <bpiotrowski@archlinux.org>
 
 pkgname=bubblewrap
-pkgver=0.12.0
+pkgver=0.13.0
 pkgrel=1
 pkgdesc='Unprivileged sandboxing tool'
 url='https://github.com/containers/bubblewrap'
@@ -22,7 +22,7 @@ makedepends=(
   meson
 )
 source=("git+$url?signed#tag=v$pkgver")
-b2sums=('7fc2f4cffe860630f2887de49d0807a99d3fd41c34259f85f3d3fdf8f3d9131b0fdf24269bc93da5b06a92d144a26a04345f0e51bbfab3e3cc3c6048df60b986')
+b2sums=('5ca3d4a066d48e04441e71ec3809fc5cb039914cd80247d49f79521c4606dbd2d5243c28abc6da7aea5b74770ce979d0f6f3b3b11761733faf20b87f7bf8c117')
 validpgpkeys=(
   DA98F25C0871C49A59EAFF2C4DE8FF2A63C7CC90 # Simon McVittie <smcv@collabora.com>
   252C6FEA78A69D3BC0AD458A616C5BDC0C29AB04 # Alexander Larsson <alexl@redhat.com>
