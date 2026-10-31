@@ -1,5 +1,5 @@
-pkgbase = bubblewrap
-	pkgdesc = Unprivileged sandboxing tool
+pkgbase = bubblewrap-restricted
+	pkgdesc = Unprivileged sandboxing tool, with SELinux support and without --cap-add option
 	pkgver = 0.13.1
 	pkgrel = 1
 	url = https://github.com/containers/bubblewrap
@@ -12,11 +12,16 @@ pkgbase = bubblewrap
 	makedepends = meson
 	depends = glibc
 	depends = libcap
+	depends = libselinux
 	depends = libgcc
+	provides = bubblewrap
+	conflicts = bubblewrap
 	source = git+https://github.com/containers/bubblewrap?signed#tag=v0.13.1
+	source = bubblewrap-utils-0.13.1.tar.gz::https://codeberg.org/HastD/bubblewrap-utils/archive/v0.13.1.tar.gz
 	validpgpkeys = DA98F25C0871C49A59EAFF2C4DE8FF2A63C7CC90
 	validpgpkeys = 252C6FEA78A69D3BC0AD458A616C5BDC0C29AB04
 	b2sums = c7e182d4bb08afcba1bdc4beae77106a6fa75e366f328642f6703ca10299e24ee44ca428f78b00617dfee3e758e68885f889c940c1aa48e7a5c1d3d0baa5c133
+	b2sums = 00476dad5836b5143d7f5abf4ab68b458b2e9a59820f0a60b52969b4fa428895ba3d44769ebe8f9b3d3c4ebbe1fdae9f8006229b2189145b48b6161c0259b12f
 
-pkgname = bubblewrap
+pkgname = bubblewrap-restricted
 	replaces = bubblewrap-suid<=0.11.2-1
