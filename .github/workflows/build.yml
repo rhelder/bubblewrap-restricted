@@ -1,0 +1,22 @@
+name: Build
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: Dockerfile
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build and install in a Docker container
+        run: ./build.sh
+
+      - name: Upload packages as artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: Packages
+          path: /home/builduser/packages
