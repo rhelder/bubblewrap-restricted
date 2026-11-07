@@ -11,7 +11,7 @@ env:
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
-  build-clean-container:
+  build-container:
     runs-on: ubuntu-latest
 
     permissions:
@@ -52,13 +52,16 @@ jobs:
           subject-digest: ${{ steps.push.outputs.digest }}
           push-to-registry: true
 
-  build:
+  build-packages:
+    needs: build-container
+
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/${{ github.repository }}
 
     steps:
-      - uses: actions/checkout@v7
+      - name: Checkout repository
+        uses: actions/checkout@v7
 
       - name: Build and install in a Docker container
         run: ./build.sh
