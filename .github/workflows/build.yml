@@ -36,7 +36,7 @@ jobs:
         uses: docker/build-push-action@v7
         with:
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ env.IMAGE_NAME }}
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
       - name: Generate artifact attestation
         uses: actions/attest@v4
